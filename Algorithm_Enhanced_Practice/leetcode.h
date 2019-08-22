@@ -165,7 +165,28 @@ public:
 
 	//	throw invalid_argument("The input has no solution.");
 	//}
-
+	vector<int> twoSum(vector<int>& numbers, int target) {
+	
+		for (int i = 0;i < numbers.size() - 1;i++) {
+			int l = i+1, r = numbers.size() - 1;
+			while (l <= r) {
+				// int mid = (l + r) / 2;
+				int mid = l + (r - l) / 2;
+				if (numbers[mid] == target-numbers[i])
+				{
+					int arr[] = { i+1, mid+1 };
+					return vector<int>(arr,arr+2);
+				}
+					
+				if (target- numbers[i] < numbers[mid])
+					r = mid - 1;
+				else
+				{
+					l = mid + 1;
+				}
+			}
+		}
+	}
 
 	/*	283. Move Zeroes	*/
 	
@@ -226,6 +247,41 @@ public:
 	//	}
 	//	return s;
 	//}
+
+	/*215. Kth Largest Element in an Array*/
+//	int _partition(vector<int>& arr, int l, int r) {
+//		int temp = arr[l];
+//		int i = l + 1, j = r;
+//		while (true)
+//		{
+//			while (i <= r && arr[i] > temp)i++;
+//			while (j >= l+1 && arr[j] < temp)j--;
+//			if (i > j) break;
+//			swap(arr[i], arr[j]);
+//			i++;
+//			j--;
+//		}
+//
+//		swap(arr[l], arr[j]);
+//
+//		return j;
+//	}
+//	int __quickSort(vector<int>& arr, int l, int r, int k) {
+//		int p = _partition(arr, l, r);
+//		if (p != k-1) {
+//			if(p > k-1)
+//				return __quickSort(arr, l, p - 1, k);
+//			else return __quickSort(arr, p + 1, r, k);
+//		}
+//		else
+//			return arr[p];
+//	}
+//
+//	int findKthLargest(vector<int>& nums, int k) {
+//		return __quickSort(nums, 0, nums.size()-1, k);
+//	}
+
+
 };
 
 #endif // !LEETCODE
