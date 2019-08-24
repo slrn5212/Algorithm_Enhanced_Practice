@@ -2,7 +2,10 @@
 #ifndef LEETCODE
 #include<algorithm>
 #include<queue>
+#include<set>
+#include<map>
 #include<iostream>
+#include<unordered_map>
 #include<stdlib.h>
 #include<assert.h>
 using namespace std;
@@ -10,6 +13,175 @@ using namespace std;
 
 class Solution {
 public:
+	/*447. Number of Boomerangs*/
+	//int _dis(vector<int>& pa, vector<int>& pb) {
+	//	return (pa[0] - pb[0])*(pa[0] - pb[0]) +
+	//		(pa[1] - pb[1])*(pa[1] - pb[1]);
+	//}
+	//int numberOfBoomerangs(vector<vector<int>>& points) {
+	//	int res = 0;
+	//	for (int i = 0;i < points.size();i++) {
+	//		unordered_map<int, int> record;
+	//		for (int j = 0;j < points.size();j++) {
+	//			if (j != i)
+	//				record [_dis(points[i], points[j]) ]++;
+	//		}
+	//		for (unordered_map<int, int>::iterator iter = record.begin();
+	//			iter != record.end(); iter++)
+	//		{
+	//			if (iter->second >= 2)
+	//				res += (iter->second)*(iter->second - 1);
+	//		}
+	//	}
+	//	return res;
+	//}
+
+	
+	/*454. 4Sum II*/
+	//int fourSumCount(vector<int>& A, vector<int>& B, vector<int>& C, vector<int>& D) {
+	//	unordered_map<int, int> record;
+	//	for (int i = 0;i < C.size();i++) {
+	//		for (int j = 0;j < D.size();j++) {
+	//			record[C[i] + D[j]]++;
+	//		}
+	//	}
+	//	int res = 0;
+	//	for (int i = 0;i < A.size();i++) {
+	//		for (int j = 0;j < B.size();j++) {
+	//			if (record.find(0 - A[i] - B[j]) != record.end())
+	//				res += record[0 - A[i] - B[j]];
+	//		}
+	//	}
+
+	//	return res;
+	//}
+
+	/*1. Two Sum*/
+	//vector<int> twoSum(vector<int>& nums, int target) {
+	//	map<int, int> record;
+	//	for (int i = 0;i < nums.size();i++) {
+	//		int complement = target - nums[i];
+	//		if (record.find(complement) != record.end()) {
+	//			int res[2] = { i, record[complement] };
+	//			return vector<int>(res, res + 2);
+	//		}
+
+	//		record[nums[i]] = i;
+	//	}
+	//}
+
+	/*76. Minimum Window Substring*/
+	//TODO:UNFINISHED
+	//string minWindow(string s, string t) {
+	//	if (s.length() < t.length()) return "";
+	//	int freq[256] = { 0 };
+	//	int freq2[256] = { 0 };
+	//	for (int i = 0;i < t.length();i++) {
+	//		freq[t[i]]++;
+	//	}
+	//	int p = 0, r = t.length()-1;
+	//	for (int i = 0;i < t.length();i++) {
+	//		freq2[s[i]]++;
+	//	}
+	//	while (p<=(s.length()-t.length()))
+	//	{
+
+	//	}
+	//}
+
+
+	/*438. Find All Anagrams in a String*/
+	//bool _compare(int arr1[], int arr2[])
+	//{
+	//	const int n = 26;
+	//	for (int i = 0;i < n;i++) {
+	//		if (arr1[i] != arr2[i])
+	//			return false;
+	//	}
+	//	return true;
+	//}
+	//vector<int> findAnagrams(string s, string p) {
+	//	if (s.length() < p.length()) return vector<int>();
+	//	int arr[26] = { 0 };
+	//	for (int i = 0;i < p.length();i++) {
+	//		arr[p[i] - 'a']++;
+	//	}
+	//	int r1 = 0;
+	//	int r2 = p.length() - 1;
+	//	vector<int> result;
+	//	while (r1 <= (s.length()-p.length()))
+	//	{
+	//		int arr2[26] = { 0 };
+	//		for (int i = 0;i <= r2 - r1;i++) {
+	//			arr2[s[i+r1] - 'a']++;
+	//		}
+	//		if (_compare(arr, arr2))
+	//		{
+	//			result.push_back(r1);
+	//		}
+	//		r1++;
+	//		r2++;
+	//	}
+	//	return result;
+	//}
+
+	/*349. Intersection of Two Arrays*/
+	//vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
+	//	//set<int> record;
+	//	//for (int i = 0;i < nums1.size();i++)
+	//	//	record.insert(nums1[i]);
+	//	set<int> record(nums1.begin(), nums1.end());
+	//	set<int> ResultSet;
+	//	for (int i = 0;i < nums2.size();i++)
+	//		if (record.find(nums2[i]) != record.end())
+	//			ResultSet.insert(nums2[i]);
+
+	//	//vector<int> resultVec;
+	//	//for (set<int>::iterator iter = ResultSet.begin(); iter != ResultSet.end(); iter++)
+	//	//	resultVec.push_back(*iter);
+
+	//	//return resultVec;
+	//	return vector<int>(ResultSet.begin(), ResultSet.end());
+	//}
+
+	/*350. Intersection of Two Arrays II*/
+	//vector<int> intersect(vector<int>& nums1, vector<int>& nums2) {
+	//	map<int, int> record;
+	//	for (int i = 0;i < nums1.size();i++) {
+	//		//record[nums1[i]] ++;  //map初始值为0
+	//		if (record.find(nums1[i]) == record.end())
+	//			record.insert(make_pair(nums1[i], 1));
+	//		else
+	//			record[nums1[i]]++;
+	//	}
+
+	//	vector<int> resultVec;
+	//	for(int i=0;i<nums2.size();i++)
+	//		if (record.find(nums2[i]) != record.end() && record[nums2[i]] > 0) {
+	//			resultVec.push_back(nums2[i]);
+	//			record[nums2[i]] --;
+	//			if (record[nums2[i]] == 0)	//键值为0则删除，可有可无
+	//				record.erase(nums2[i]);
+	//		}     
+	//	return resultVec;
+	//}
+
+	/*3. Longest Substring Without Repeating Characters*/
+	//int lengthOfLongestSubstring(string s) {
+	//	int freq[256] = { 0 };
+	//	int l = 0, r = -1;
+	//	int res = 0;
+	//	while (l < s.size()) {
+	//		if (r + 1 < s.size() && freq[s[r + 1]] == 0)
+	//			freq[s[++r]] ++;
+	//		else
+	//			freq[s[l++]]--;
+
+	//		res = max(res, r - l + 1);
+	//	}
+
+	//	return res;
+	//}
 
 	/*11. Container With Most Water*/
 	//int maxArea(vector<int>& height) {
@@ -165,28 +337,51 @@ public:
 
 	//	throw invalid_argument("The input has no solution.");
 	//}
-	vector<int> twoSum(vector<int>& numbers, int target) {
-	
-		for (int i = 0;i < numbers.size() - 1;i++) {
-			int l = i+1, r = numbers.size() - 1;
-			while (l <= r) {
-				// int mid = (l + r) / 2;
-				int mid = l + (r - l) / 2;
-				if (numbers[mid] == target-numbers[i])
-				{
-					int arr[] = { i+1, mid+1 };
-					return vector<int>(arr,arr+2);
-				}
-					
-				if (target- numbers[i] < numbers[mid])
-					r = mid - 1;
-				else
-				{
-					l = mid + 1;
-				}
-			}
-		}
-	}
+	//vector<int> twoSum(vector<int>& numbers, int target) {
+	//
+	//	for (int i = 0;i < numbers.size() - 1;i++) {
+	//		int l = i+1, r = numbers.size() - 1;
+	//		while (l <= r) {
+	//			// int mid = (l + r) / 2;
+	//			int mid = l + (r - l) / 2;
+	//			if (numbers[mid] == target-numbers[i])
+	//			{
+	//				int arr[] = { i+1, mid+1 };
+	//				return vector<int>(arr,arr+2);
+	//			}
+	//				
+	//			if (target- numbers[i] < numbers[mid])
+	//				r = mid - 1;
+	//			else
+	//			{
+	//				l = mid + 1;
+	//			}
+	//		}
+	//	}
+	//}
+
+
+
+	/*209. Minimum Size Subarray Sum*/
+	//int minSubArrayLen(int s, vector<int>& nums) {
+	//	int l = 0, r = -1;	// without any elements
+	//	int sum = 0;
+	//	int res = nums.size() + 1; //Maximum
+
+	//	while (l < nums.size()) {
+	//		if ( r+1<nums.size() && sum < s) {
+	//			sum += nums[++r];
+	//		}
+	//		else {
+	//			sum -= nums[l++];
+	//		}
+	//		if (sum >= s)
+	//			res = min(res, r - l + 1);
+	//	}
+	//	if (res == nums.size() + 1)
+	//		return 0;
+	//	return res;
+	//}
 
 	/*	283. Move Zeroes	*/
 	
